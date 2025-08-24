@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Be Decided | Portfolio</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles to complement Tailwind */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #FFF5E1; /* Fallback background for orange theme */
+        }
+
+        /* NEW: CSS Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px; /* Grid spacing */
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            animation: moveGrid 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveGrid {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 1000px 1000px; /* Move far away to hide looping */
+            }
+        }
+
+        /* A wrapper to allow content to scroll over the fixed background */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        /* Glassmorphism effect for content sections and header */
+        .card {
+            background: rgba(255, 255, 255, 0.25); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Header specific styles for a subtle look */
+        .header-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-orange-500 text-black">
+
+    <!-- The new grid background div -->
+    <div class="grid-background"></div>
+
+    <!-- Scrollable content wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Minimalist Header -->
+        <header class="header-card fixed top-0 left-0 right-0 z-50">
+            <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#hero" class="text-xl font-bold tracking-tight">To Be Decided</a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 text-gray-800">
+                     <a href="#finance" class="hover:text-black transition-colors duration-300">Finance</a>
+                     <a href="#geopolitics" class="hover:text-black transition-colors duration-300">Geopolitics</a>
+                     <a href="#growth" class="hover:text-black transition-colors duration-300">Growth Stories</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-black focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <a href="#finance" class="block py-2 px-6 text-gray-800 hover:bg-white/20">Finance</a>
+                <a href="#geopolitics" class="block py-2 px-6 text-gray-800 hover:bg-white/20">Geopolitics</a>
+                <a href="#growth" class="block py-2 px-6 text-gray-800 hover:bg-white/20">Growth Stories</a>
+            </div>
+        </header>
+        
+        <!-- Hero Section (Full Screen) -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative">
+            <div class="max-w-4xl pt-16">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+                    Finance made simple, fun, and real.
+                </h1>
+                <p class="text-md md:text-lg text-gray-800 max-w-3xl mx-auto mt-4">
+                    Your hub for everything from finance and geopolitics to growth stories and side hustles.
+                </p>
+            </div>
+             <!-- Quick Nav Cards -->
+            <div class="mt-12 max-w-5xl mx-auto w-full">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                    <a href="#finance" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Finance</h3>
+                    </a>
+                    <a href="#geopolitics" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Geopolitics</h3>
+                    </a>
+                    <a href="#growth" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Growth Stories</h3>
+                    </a>
+                    <a href="#reality" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Ground Reality</h3>
+                    </a>
+                    <a href="#hustles" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Side Hustles</h3>
+                    </a>
+                    <a href="#memes" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Memes</h3>
+                    </a>
+                    <a href="#simulations" class="card rounded-lg p-4 text-center hover:scale-105 transform transition-transform duration-300">
+                        <h3 class="font-bold text-sm sm:text-base">Simulations</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- Scroll Down Icon -->
+            <a href="#finance" class="absolute bottom-10 animate-bounce">
+                <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+        </section>
+
+        <!-- Main Content Wrapper -->
+        <main class="px-6 md:px-8 py-24 md:py-32">
+            <div class="max-w-4xl mx-auto space-y-24 md:space-y-32">
+                
+                <!-- Finance Simplified Section -->
+                <section id="finance" class="card rounded-2xl p-6 md:p-12 text-left">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">Finance Simplified 📈</h2>
+                    <p class="text-gray-800 text-base md:text-lg">
+                        <strong>Easy Breakdowns:</strong> From complex market concepts to snackable explainers. We break it all down for you.<br><br>
+                        <strong>Tips for Students:</strong> Master budgeting, learn investing basics, and discover savings hacks tailored for you.<br><br>
+                        <strong>Investment Guides:</strong> Explore guides on Mutual Funds, stocks, gold, bonds, PF, RD, and even crypto.
+                    </p>
+                </section>
+
+                <!-- Geopolitics & Macro Section -->
+                <section id="geopolitics" class="card rounded-2xl p-6 md:p-12 text-left">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center">Geopolitics & Macro 🌍</h2>
+                    <p class="text-gray-800 text-base md:text-lg">
+                        <strong>Global Policies Explained:</strong> Understand what the RBI or the Fed did and how it directly affects your wallet.<br><br>
+                        <strong>Impact on Daily Life:</strong> Connect the dots between oil prices, inflation, taxes, and your personal finances.<br><br>
+                        <strong>Quick Scenarios:</strong> What if China bans a major import tomorrow? We explore the potential ripple effects.
+                    </p>
+                </section>
+                
+                <!-- Other sections follow the same responsive pattern -->
+
+                <!-- Meet the Founders Section -->
+                <section id="founders" class="card rounded-2xl p-6 md:p-12 text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-12">Meet the Founders</h2>
+                    <div class="flex flex-col md:flex-row justify-center items-center space-y-12 md:space-y-0 md:space-x-16">
+                        <!-- Founder 1: Manan Pant -->
+                        <div class="flex flex-col items-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQH0Gvbnqje-iQ/profile-displayphoto-crop_800_800/B4DZikOFTuH4AI-/0/1755101813996?e=1758758400&v=beta&t=7GVcIvPR3WYDWHrQ_t9JSnUgQmMf4KRZSI_Ug3LHzz4" alt="Manan Pant" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-lg mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold">Manan Pant</h3>
+                            <p class="text-gray-800">Co-Founder</p>
+                            <a href="https://www.linkedin.com/in/mananpant17/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-black text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+                                View LinkedIn
+                            </a>
+                        </div>
+                        <!-- Founder 2: Gurtej Singh -->
+                        <div class="flex flex-col items-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFJXMd-U3DPZA/profile-displayphoto-crop_800_800/B56ZetHlfnGoAQ-/0/1750956138319?e=1758758400&v=beta&t=KL9kcVDmzjhGYi6i2sPw4SSMPVwFvBpMOga1jjrDgMs" alt="Gurtej Singh" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-lg mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold">Gurtej Singh</h3>
+                            <p class="text-gray-800">Co-Founder</p>
+                             <a href="https://www.linkedin.com/in/gurtej-singh-bhamrah-5a0b85280/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-black text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+                                View LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Community & Engagement Section -->
+                <section id="community" class="card rounded-2xl p-6 md:p-12 text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6">Community & Engagement 👋</h2>
+                    <p class="text-gray-800 text-base md:text-lg max-w-2xl mx-auto">
+                        Join the conversation! Participate in comment-driven finance debates, submit your own memes, and join our "Ask Me Anything" sessions.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#hero" class="inline-block bg-black text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-800 transition-colors duration-300 shadow-lg">
+                            Get Involved
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center p-6 md:p-8 text-gray-800">
+            <p>&copy; 2025 To Be Decided. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
